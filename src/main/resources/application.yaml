@@ -1,0 +1,15 @@
+spring:
+  profiles.active: kafka
+  application.name: spaceship
+  datasource:
+    driver-class-name: org.h2.Driver
+    url: jdbc:h2:mem:testdb
+    username: sa
+    password:
+
+management:
+  metrics.enable.all: true
+  endpoints.web.exposure.include: health,info,metrics,prometheus
+  endpoint:
+    metrics.enabled: true
+    prometheus.enabled: true
