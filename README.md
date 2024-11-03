@@ -1,10 +1,8 @@
 # Spaceship API
 
 ## Description
-RESTful API for managing a catalog of fictional spaceships. It offers comprehensive CRUD operations on spaceships,
-including advanced features such as name-based filtering, pagination, and Kafka integration for event streaming. 
-The API has been designed as a technical demonstration to showcase backend development skills using Spring Boot and 
-related technologies
+RESTful API for managing a catalog of fictional spaceships. CRUD operations on spaceships, including features such 
+as name-based filtering, pagination, and Kafka integration for event streaming.
 
 ## Key Features
 - Full CRUD operations for spaceship management
