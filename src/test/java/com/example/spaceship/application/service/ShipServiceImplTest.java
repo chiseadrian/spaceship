@@ -1,6 +1,6 @@
 package com.example.spaceship.application.service;
 
-import com.example.spaceship.application.exceptions.*;
+import com.example.spaceship.application.exceptions.ShipNotFoundException;
 import com.example.spaceship.domain.entities.Ship;
 import com.example.spaceship.domain.ports.ShipRepository;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,21 +16,31 @@ import org.springframework.data.domain.Pageable;
 import java.util.List;
 import java.util.Optional;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.assertDoesNotThrow;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyLong;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.times;
 
 @ExtendWith(MockitoExtension.class)
 class ShipServiceImplTest {
+
+    private Ship testShip;
+
+    private Pageable pageable;
 
     @Mock
     private ShipRepository shipRepository;
 
     @InjectMocks
     private ShipServiceImpl shipServiceImpl;
-
-    private Ship testShip;
-    private Pageable pageable;
 
     @BeforeEach
     void setUp() {

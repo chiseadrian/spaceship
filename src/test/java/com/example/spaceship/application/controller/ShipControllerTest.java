@@ -22,11 +22,21 @@ import java.net.URI;
 import java.util.List;
 import java.util.Objects;
 
-import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.ArgumentMatchers.*;
-import static org.mockito.Mockito.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.any;
+import static org.mockito.Mockito.anyString;
+import static org.mockito.Mockito.verify;
+import static org.mockito.Mockito.doNothing;
+import static org.mockito.Mockito.doThrow;
+import static org.mockito.Mockito.eq;
 
 class ShipControllerTest {
+
+    private final Ship SHIP1 = generateShip(1L, "name1", "type1");
+
+    private final Ship SHIP2 = generateShip(2L, "name2", "type2");
 
     @Mock
     private ShipServiceImpl shipServiceImpl;
@@ -42,10 +52,6 @@ class ShipControllerTest {
 
     @InjectMocks
     private ShipController shipController;
-
-    private final Ship SHIP1 = generateShip(1L, "name1", "type1");
-
-    private final Ship SHIP2 = generateShip(2L, "name2", "type2");
 
     @BeforeEach
     void setUp() {
