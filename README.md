@@ -32,7 +32,7 @@ All API endpoints are secured with basic authentication:
 ```
 
 ## API Endpoints
-| Endpoint | Action                                |
+| Endpoint | Description                           |
 |----------|---------------------------------------|
 | GET /api/spaceships | Retrieve all spaceships (paginated)   |
 | GET /api/spaceships/{id} | Get a specific spaceship by ID        |
@@ -45,21 +45,20 @@ All API endpoints are secured with basic authentication:
 
 ## Building and Running
 
-### Local Development
+### Local
 1. Clone the repository
 2. Run `mvn clean install` to build the project
-3. Add VM option `-Dspring.kafka.bootstrap-servers=localhost:29092`
-3. Start the application running `SpaceshipApplication.java`
+3. Run `docker compose up` and stop `spaceship-app` container
+4. Add VM option `-Dspring.kafka.bootstrap-servers=localhost:29092`
+5. Start the application by running `SpaceshipApplication.java`
 
-
-
-### Docker Deployment
+### Docker
 1. Build the Docker image:
     * `mvn clean package`
     * `docker build -t spaceship .`
 2. Run with Docker Compose:
    * `mvn clean package`
-   * `docker-compose up`
+   * `docker compose up`
 
 ## Useful Links
 - [Swagger UI](http://localhost:8080/swagger-ui/index.html)
